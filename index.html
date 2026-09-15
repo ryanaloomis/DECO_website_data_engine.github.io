@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MAPS Data Browser Prototype</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="page-heading">
+      <h1>Data</h1>
+      <p>
+        This standalone prototype reproduces the structure and behavior of the MAPS data selector
+        using a compact data-driven backend suitable for GitHub Pages and embedding in Google Sites.
+      </p>
+      <p>
+        Select files manually from the tree, search across the catalog hierarchy, or add Disk/Molecule filters.
+        The Download button creates a shell script containing the selected MAPS file URLs, and Bibtex
+        creates a citation file for the selected products.
+      </p>
+    </header>
+
+    <section class="interface" aria-label="MAPS data download interface">
+      <aside class="left-panel">
+        <div class="preset-wrap">
+          <button class="btn btn-primary btn-lg preset-button" id="presetButton" type="button"
+                  aria-expanded="false" aria-controls="presetMenu">
+            Add filter <span class="caret">▾</span>
+          </button>
+          <div class="preset-menu" id="presetMenu" hidden></div>
+        </div>
+
+        <div class="well presets" id="displayPresets">
+          No filters selected. Add a filter or manually select data.
+        </div>
+
+        <div class="type-filters" id="typeFilters" aria-label="Filter product types">
+          <label title="Image cubes and associated image products"><input type="checkbox" id="check_images" data-filter="images" disabled> Images</label>
+          <label title="Non-radial value-added image products"><input type="checkbox" id="check_mm" data-filter="moment_maps" disabled> Moment maps</label>
+          <label><input type="checkbox" id="check_ms" data-filter="measurement_sets" disabled> Measurement sets</label>
+          <label><input type="checkbox" id="check_rp" data-filter="radial_profiles" disabled> Radial profiles</label>
+        </div>
+        <p class="filter-help" id="filterHelp">
+Product types refine files selected through Disk/Molecule filters; manual tree selections are preserved.
+        </p>
+
+        <div class="search-wrap">
+          <div class="search-box">
+            <input id="searchInput" type="text" placeholder="Search (e.g. AS 209 CO, HD 163296 HCN)" autocomplete="off">
+            <button id="searchButton" type="button" aria-label="Search">⌕</button>
+          </div>
+          <div id="searchResults" class="search-results" hidden></div>
+        </div>
+
+        <div class="well total" id="totalSelected">0 files selected; 0GB total.</div>
+
+        <div class="actions">
+          <button class="btn btn-primary btn-lg" id="clearAll" type="button">Clear all</button>
+          <button class="btn btn-danger btn-lg" id="downloadBtn" type="button">Download</button>
+        </div>
+      </aside>
+
+      <section class="right-panel">
+        <div class="tree-toolbar">
+          <button class="link-button" id="collapseAll" type="button">Collapse all</button>
+        </div>
+        <div id="treeContainer" class="tree well" aria-label="MAPS product tree">
+          <div class="loading">Loading MAPS catalog…</div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h2 id="modalTitle">Confirm data download</h2>
+        <button id="modalCloseX" class="close-button" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body" id="downloadPopupTxt">No data was selected for download.</div>
+      <div class="modal-footer">
+        <button class="btn btn-default" id="modalClose" type="button">Close</button>
+        <button class="btn btn-default" id="confirmBibtexBtn" type="button" disabled>Bibtex</button>
+        <button class="btn btn-default" id="confirmDownloadBtn" type="button" disabled>Download</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data/catalog.js"></script>
+  <script src="data/citations.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

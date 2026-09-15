@@ -1,0 +1,40 @@
+{
+  "nodes": 1466,
+  "downloadable_files": 21827,
+  "encoded_total_gb": 5180.45,
+  "url_schemes": {
+    "ftp": 21827
+  },
+  "types": {
+    "moment_map": 13446,
+    "image": 7525,
+    "measurement_set": 834,
+    "aux": 22
+  },
+  "roots": {
+    "AS_209": {
+      "files": 4282,
+      "gb": 1008.34
+    },
+    "GM_Aur": {
+      "files": 4381,
+      "gb": 904.42
+    },
+    "HD_163296": {
+      "files": 4380,
+      "gb": 1226.74
+    },
+    "IM_Lup": {
+      "files": 4381,
+      "gb": 741.08
+    },
+    "MWC_480": {
+      "files": 4381,
+      "gb": 1260.97
+    },
+    "Aux": {
+      "files": 22,
+      "gb": 38.9
+    }
+  }
+}
