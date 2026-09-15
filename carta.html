@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore Data in CARTA</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/carta.css">
+</head>
+<body>
+  <main class="page carta-page">
+    <header class="page-heading">
+      <h1>Explore data in CARTA</h1>
+      <p>Choose an ALMA data product to start a temporary CARTA session.</p>
+    </header>
+
+    <section class="carta-selector" aria-label="ALMA data products">
+      <button class="btn btn-primary btn-lg carta-data-button" type="button"
+              data-file="member.uid___A001_X15a1_X1ab0.DM_Tau_sci.spw16.cube.I.pbcor.fits">
+        DM Tau spw 16
+      </button>
+      <button class="btn btn-primary btn-lg carta-data-button" type="button"
+              data-file="member.uid___A001_X15a1_X1ab0.DM_Tau_sci.spw18.cube.I.pbcor.fits">
+        DM Tau spw 18
+      </button>
+      <button class="btn btn-primary btn-lg carta-data-button" type="button"
+              data-file="member.uid___A001_X15a1_X1ab0.DM_Tau_sci.spw20.cube.I.pbcor.fits">
+        DM Tau spw 20
+      </button>
+      <button class="btn btn-primary btn-lg carta-data-button" type="button"
+              data-file="member.uid___A001_X15a1_X1ab0.DM_Tau_sci.spw22.cube.I.pbcor.fits">
+        DM Tau spw 22
+      </button>
+    </section>
+
+    <p class="carta-status" id="cartaStatus" role="status" aria-live="polite">
+      Select a data product above.
+    </p>
+
+    <section class="carta-viewer" id="cartaViewer" aria-label="CARTA viewer" hidden>
+      <iframe id="cartaFrame" title="CARTA viewer" allow="fullscreen"></iframe>
+    </section>
+
+    <p class="carta-back-link"><a href="index.html">Back to data download</a></p>
+  </main>
+
+  <script src="assets/carta.js"></script>
+</body>
+</html>
